@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Profile" representedClassName=".CDProfile" syncable="YES">
+        <attribute name="avatarUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="profile" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Repository" representedClassName=".CDRepository" syncable="YES">
+        <attribute name="forksCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="openIssueCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ownerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startsCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sumary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="repositories" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".CDUser" syncable="YES">
+        <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Profile" inverseName="user" inverseEntity="Profile" syncable="YES"/>
+        <relationship name="repositories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Repository" inverseName="user" inverseEntity="Repository" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Profile" positionX="-450" positionY="-9" width="128" height="180"/>
+        <element name="User" positionX="-54" positionY="54" width="128" height="88"/>
+        <element name="Repository" positionX="-261" positionY="291" width="128" height="195"/>
+    </elements>
+</model>
